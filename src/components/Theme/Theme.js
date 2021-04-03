@@ -1,16 +1,43 @@
 import React, { useState } from "react";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import { red } from "@material-ui/core/colors";
+import { blue, red, yellow } from "@material-ui/core/colors";
 
 export const lightTheme = createMuiTheme({
     palette: {
-        type: false ? "light" : "dark"
+        type: "light",
+        primary: blue,
+        secondary: yellow
+    },
+    overrides: {
+        MuiButton: {
+            label: {
+                textTransform: "none"
+            }
+        },
+        MuiTypography: {
+            body1: {
+                textTransform: "none"
+            }
+        }
     }
 });
 
-const darkTheme = createMuiTheme({
+export const darkTheme = createMuiTheme({
     palette: {
-        type: "dark",
-        primary: red
+        type: "light",
+        primary: yellow,
+        secondary: blue
+    },
+    overrides: {
+        MuiButton: {
+            label: {
+                textTransform: "none"
+            }
+        },
+        MuiTypography: {
+            body1: {
+                textTransform: "none"
+            }
+        }
     }
 });
