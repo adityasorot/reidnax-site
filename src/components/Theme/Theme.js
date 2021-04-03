@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import { blue, red, yellow } from "@material-ui/core/colors";
+import { createMuiTheme } from "@material-ui/core";
+import { blue, yellow } from "@material-ui/core/colors";
 
 export const lightTheme = createMuiTheme({
     palette: {
@@ -17,6 +16,11 @@ export const lightTheme = createMuiTheme({
         MuiTypography: {
             body1: {
                 textTransform: "none"
+            }
+        },
+        MuiSvgIcon: {
+            root: {
+                color: "white"
             }
         }
     }
@@ -37,6 +41,11 @@ export const darkTheme = createMuiTheme({
         MuiTypography: {
             body1: {
                 textTransform: "none"
+            }
+        },
+        MuiSvgIcon: {
+            root: {
+                color: "white"
             }
         }
     }

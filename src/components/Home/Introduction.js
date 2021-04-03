@@ -6,17 +6,39 @@ import Profile from "../../assets/Profile.jpg";
 const useStyles = makeStyles((theme) => ({
     intro: {
         padding: "3vh",
-
-        backgroundColor: theme.palette.secondary.light
+        backgroundColor: theme.palette.secondary.light,
+        [theme.breakpoints.up("sm")]: {
+            padding: "3vh",
+            backgroundColor: theme.palette.secondary.light
+        }
     },
     introDarkMode: {
         padding: "3vh",
-        backgroundColor: theme.palette.secondary.main
+        backgroundColor: theme.palette.secondary.main,
+        [theme.breakpoints.up("sm")]: {
+            padding: "3vh",
+            backgroundColor: theme.palette.secondary.main
+        }
     },
     introPara: {
-        paddingTop: "25vh",
-        paddingBottom: "25vh",
-        width: "50vw"
+        paddingTop: "5vh",
+        paddingBottom: "5vh",
+        width: "50vw",
+        [theme.breakpoints.up("sm")]: {
+            paddingTop: "25vh",
+            paddingBottom: "15vh",
+            width: "50vw"
+        }
+    },
+    profile: {
+        marginTop: "17vh",
+        width: "35vw",
+        height: "25vh",
+        [theme.breakpoints.up("sm")]: {
+            marginTop: "18vh",
+            width: "35vw",
+            height: "60vh"
+        }
     }
 }));
 
@@ -48,27 +70,30 @@ const Introduction = () => {
                         </Typography>
                     </Grid>
                     <Grid item>
-                        <Typography color="primary" style={{ width: "40vw" }}>
+                        <Typography color="primary" style={{ width: "50vw" }}>
                             Creative and Quick witted coder with a passion for
                             making life easy by some lines of code and with
                             enough confidence to succeed in what I want to do.
                         </Typography>
                     </Grid>
-                    <Grid item>
-                        <Typography color="primary" style={{ width: "40vw" }}>
-                            20+ Projects Done 10+ Happy Clients
-                        </Typography>
+                    <Grid item container spacing={2}>
+                        <Grid item>
+                            <Typography color="primary">
+                                20+ Projects Done
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography color="primary">
+                                10+ Happy Clients
+                            </Typography>
+                        </Grid>
                     </Grid>
                 </Grid>
                 <Grid item>
                     <img
                         src={Profile}
-                        alt="Profile Image"
-                        style={{
-                            marginTop: "18vh",
-                            width: "40vw",
-                            height: "60vh"
-                        }}
+                        alt="Profile"
+                        className={classes.profile}
                     />
                 </Grid>
             </Grid>

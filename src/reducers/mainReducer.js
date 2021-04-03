@@ -1,5 +1,6 @@
 const initialState = {
-    darkMode: false
+    darkMode: false,
+    endOfScroll: false
 };
 
 export const mainReducer = (state = initialState, action) => {
@@ -8,6 +9,16 @@ export const mainReducer = (state = initialState, action) => {
             return {
                 ...state,
                 darkMode: !state.darkMode
+            };
+        case "TOGGLE_SCROLL_T":
+            return {
+                ...state,
+                endOfScroll: true
+            };
+        case "TOGGLE_SCROLL_F":
+            return {
+                ...state,
+                endOfScroll: false
             };
         default:
             return state;

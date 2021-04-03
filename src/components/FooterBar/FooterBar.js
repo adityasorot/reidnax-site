@@ -2,21 +2,16 @@ import {
     AppBar,
     Button,
     Drawer,
-    Fab,
     IconButton,
     List,
     ListItem,
     ListItemText,
     makeStyles,
-    Switch,
     Toolbar,
     Typography
 } from "@material-ui/core";
 import { ChevronRight, Menu } from "@material-ui/icons";
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { toggleDarkMode } from "../../actions/mainActions";
+import React, { useState } from "react";
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1
@@ -40,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
         "&$checked": {
             color: theme.palette.secondary.main,
             [theme.breakpoints.up("sm")]: {
-                transform: "translateX(1.4vw)"
+                transform: "translateX(1.5vw)"
             }
         },
         "&$checked + $track": {
@@ -92,21 +87,14 @@ const useStyles = makeStyles((theme) => ({
         bottom: 20,
         left: "auto",
         position: "fixed",
-        zIndex: 10000,
-        display: (props) => (props.scroll ? "none" : "flex")
+        zIndex: 100
     },
     icon: {
         color: theme.palette.secondary.main
     }
 }));
-const HeaderBar = (props) => {
-    const classes = useStyles(props);
-    useEffect(() => {
-        console.log(props);
-    }, [props]);
-
-    const darkMode = useSelector((state) => state.darkMode);
-    const dispatch = useDispatch();
+const FooterBar = () => {
+    const classes = useStyles();
     const [open, setOpen] = useState(false);
 
     const handleDrawerOpen = () => {
@@ -163,28 +151,7 @@ const HeaderBar = (props) => {
                     </div>
                 </Toolbar>
             </AppBar>
-            <div className={classes.fab}>
-                <Fab
-                    variant="extended"
-                    color="primary"
-                    style={{ padding: "3vh", borderRadius: "4vh" }}
-                >
-                    <Typography style={{ padding: "1vh" }} color="secondary">
-                        SURPRISE
-                    </Typography>
-                    <Switch
-                        checked={darkMode}
-                        onChange={() => dispatch(toggleDarkMode())}
-                        classes={{
-                            root: classes.root,
-                            switchBase: classes.switchBase,
-                            checked: classes.checked,
-                            track: classes.track,
-                            thumb: classes.thumb
-                        }}
-                    />
-                </Fab>
-            </div>
+
             <Drawer
                 className={classes.drawer}
                 // variant="persistent"
@@ -233,4 +200,4 @@ const HeaderBar = (props) => {
     );
 };
 
-export default HeaderBar;
+export default FooterBar;
