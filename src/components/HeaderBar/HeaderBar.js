@@ -17,6 +17,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { toggleDarkMode } from "../../actions/mainActions";
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1
@@ -116,6 +117,7 @@ const HeaderBar = (props) => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+    const history = useHistory();
     return (
         <div className={classes.grow}>
             <AppBar position="sticky" classes={{ root: classes.appBar }}>
@@ -126,19 +128,36 @@ const HeaderBar = (props) => {
 
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <Button style={{ padding: "1vh" }} color="secondary">
+                        <Button
+                            onClick={() => history.push("/")}
+                            style={{ padding: "1vh" }}
+                            color="secondary"
+                        >
                             Home
                         </Button>
-                        <Button style={{ padding: "1vh" }} color="secondary">
+                        <Button
+                            onClick={() => history.push("/about")}
+                            style={{ padding: "1vh" }}
+                            color="secondary"
+                        >
                             About
                         </Button>
-                        <Button style={{ padding: "1vh" }} color="secondary">
+                        <Button
+                            onClick={() => history.push("/services")}
+                            style={{ padding: "1vh" }}
+                            color="secondary"
+                        >
                             Services
                         </Button>
-                        <Button style={{ padding: "1vh" }} color="secondary">
+                        <Button
+                            onClick={() => history.push("/projects")}
+                            style={{ padding: "1vh" }}
+                            color="secondary"
+                        >
                             Projects
                         </Button>
                         <Button
+                            onClick={() => history.push("/contact")}
                             style={{ padding: "1vh" }}
                             variant="contained"
                             color="secondary"

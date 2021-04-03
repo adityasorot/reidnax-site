@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { ChevronRight, Menu } from "@material-ui/icons";
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1
@@ -104,6 +105,7 @@ const FooterBar = () => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+    const history = useHistory();
     return (
         <div className={classes.grow}>
             <AppBar position="sticky" classes={{ root: classes.appBar }}>
@@ -114,19 +116,36 @@ const FooterBar = () => {
 
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <Button style={{ padding: "1vh" }} color="secondary">
+                        <Button
+                            onClick={() => history.push("/")}
+                            style={{ padding: "1vh" }}
+                            color="secondary"
+                        >
                             Home
                         </Button>
-                        <Button style={{ padding: "1vh" }} color="secondary">
+                        <Button
+                            onClick={() => history.push("/about")}
+                            style={{ padding: "1vh" }}
+                            color="secondary"
+                        >
                             About
                         </Button>
-                        <Button style={{ padding: "1vh" }} color="secondary">
+                        <Button
+                            onClick={() => history.push("/services")}
+                            style={{ padding: "1vh" }}
+                            color="secondary"
+                        >
                             Services
                         </Button>
-                        <Button style={{ padding: "1vh" }} color="secondary">
+                        <Button
+                            onClick={() => history.push("/projects")}
+                            style={{ padding: "1vh" }}
+                            color="secondary"
+                        >
                             Projects
                         </Button>
                         <Button
+                            onClick={() => history.push("/contact")}
                             style={{ padding: "1vh" }}
                             variant="contained"
                             color="secondary"
