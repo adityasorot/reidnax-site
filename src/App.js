@@ -11,6 +11,8 @@ import AboutBody from "./components/About/AboutBody";
 import ServicesBody from "./components/Services/ServicesBody";
 import ProjectsBody from "./components/Projects/ProjectsBody";
 import ContactBody from "./components/Contact/ContactBody";
+import Contact from "./components/Home/Contact";
+import ScrollToTop from "./ScrollToTop";
 
 const App = () => {
     const darkMode = useSelector((state) => state.darkMode);
@@ -42,6 +44,7 @@ const App = () => {
             <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
                 <div id="App">
                     <HeaderBar scroll={endOfScroll} />
+                    <ScrollToTop />
                     <Switch>
                         <Route exact path="/" component={HomeBody} />
                         <Route path="/services" component={ServicesBody} />
@@ -49,6 +52,7 @@ const App = () => {
                         <Route path="/projects" component={ProjectsBody} />
                         <Route path="/contact" component={ContactBody} />
                     </Switch>
+                    <Contact />
                     <FooterBar />
                 </div>
             </ThemeProvider>

@@ -1,9 +1,14 @@
 import React from "react";
+import AboutDescription from "./AboutDescription";
+import AboutIntro from "./AboutIntro";
+// import AboutWork from "./AboutWork";
 
 const AboutBody = () => {
     return (
         <div>
-            <h1>About</h1>
+            <AboutIntro />
+            <AboutDescription />
+            {/* <AboutWork /> */}
         </div>
     );
 };

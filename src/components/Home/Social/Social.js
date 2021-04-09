@@ -60,28 +60,56 @@ const Social = () => {
                 </Grid>
                 <Grid item container>
                     <Grid item>
-                        <IconButton>
-                            <Facebook />
+                        <IconButton
+                            onClick={() => {
+                                const url =
+                                    "http://www.facebook.com/adityasorot";
+                                window.open(url, "_blank");
+                            }}
+                        >
+                            <Facebook className={classes.icons} />
                         </IconButton>
                     </Grid>
                     <Grid item>
-                        <IconButton>
-                            <GitHub />
+                        <IconButton
+                            onClick={() => {
+                                const url = "http://www.github.com/reidnax";
+                                window.open(url, "_blank");
+                            }}
+                        >
+                            <GitHub className={classes.icons} />
                         </IconButton>
                     </Grid>
                     <Grid item>
-                        <IconButton>
-                            <LinkedIn />
+                        <IconButton
+                            onClick={() => {
+                                const url =
+                                    "http://www.linkedin.com/in/adityasorot";
+                                window.open(url, "_blank");
+                            }}
+                        >
+                            <LinkedIn className={classes.icons} />
                         </IconButton>
                     </Grid>
                     <Grid item>
-                        <IconButton>
-                            <Twitter />
+                        <IconButton
+                            onClick={() => {
+                                const url = "http://www.twitter.com/theReidnax";
+                                window.open(url, "_blank");
+                            }}
+                        >
+                            <Twitter className={classes.icons} />
                         </IconButton>
                     </Grid>
                     <Grid item>
-                        <IconButton>
-                            <Instagram />
+                        <IconButton
+                            onClick={() => {
+                                const url =
+                                    "http://www.instagram.com/adityasorot";
+                                window.open(url, "_blank");
+                            }}
+                        >
+                            <Instagram className={classes.icons} />
                         </IconButton>
                     </Grid>
                 </Grid>

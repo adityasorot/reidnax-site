@@ -16,7 +16,11 @@ import { ChevronRight, Menu } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { toggleDarkMode } from "../../actions/mainActions";
+import {
+    toggleDarkMode,
+    toggleScrollF,
+    toggleScrollT
+} from "../../actions/mainActions";
 import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -100,6 +104,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.secondary.main
     }
 }));
+
 const HeaderBar = (props) => {
     const classes = useStyles(props);
     useEffect(() => {
@@ -112,12 +117,45 @@ const HeaderBar = (props) => {
 
     const handleDrawerOpen = () => {
         setOpen(true);
+        dispatch(toggleScrollT());
     };
 
     const handleDrawerClose = () => {
         setOpen(false);
+        dispatch(toggleScrollF());
     };
     const history = useHistory();
+    const ButtonList = [
+        {
+            name: "Home",
+            func: () => {
+                history.push("/");
+                handleDrawerClose();
+            }
+        },
+        {
+            name: "About",
+            func: () => {
+                history.push("/about");
+                handleDrawerClose();
+            }
+        },
+        {
+            name: "Services",
+            func: () => {
+                history.push("/services");
+                handleDrawerClose();
+            }
+        },
+        {
+            name: "Projects",
+            func: () => {
+                history.push("/projects");
+                handleDrawerClose();
+            }
+        }
+    ];
+    
     return (
         <div className={classes.grow}>
             <AppBar position="sticky" classes={{ root: classes.appBar }}>
@@ -219,25 +257,32 @@ const HeaderBar = (props) => {
                     </IconButton>
                 </div>
                 <List>
-                    {["Home", "About", "Services", "Projects"].map(
-                        (text, index) => (
-                            <ListItem button key={text}>
-                                <ListItemText
-                                    primary={
-                                        <Typography color="secondary">
-                                            {text}
-                                        </Typography>
-                                    }
-                                />
-                            </ListItem>
-                        )
-                    )}
+                    {ButtonList.map((itr) => (
+                        <ListItem button key={itr.name}>
+                            <ListItemText
+                                primary={
+                                    <Typography color="secondary">
+                                        {itr.name}
+                                    </Typography>
+                                }
+                                onClick={itr.func}
+                            />
+                        </ListItem>
+                    ))}
                 </List>
                 <div className={classes.grow} />
 
                 <List>
                     <ListItem>
-                        <Button variant="contained" color="secondary">
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            style={{ marginBottom: "1.5vh" }}
+                            onClick={() => {
+                                history.push("/contact");
+                                handleDrawerClose();
+                            }}
+                        >
                             <Typography
                                 className={classes.buttonText}
                                 color="primary"

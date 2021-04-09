@@ -1,4 +1,4 @@
-import { Grid, Link, makeStyles, Typography } from "@material-ui/core";
+import { Button, Grid,  makeStyles, Typography } from "@material-ui/core";
 import {
     ChevronRight,
     Code,
@@ -7,13 +7,15 @@ import {
 } from "@material-ui/icons";
 import React from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 const useStyles = makeStyles((theme) => ({
     intro: {
         padding: "3vh",
         backgroundColor: theme.palette.primary.main,
         [theme.breakpoints.up("sm")]: {
             padding: "3vh",
-            paddingTop: "8vh",
+            paddingTop: "13vh",
+            paddingBottom: "13vh",
             backgroundColor: theme.palette.primary.main
         }
     },
@@ -22,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.primary.main,
         [theme.breakpoints.up("sm")]: {
             padding: "3vh",
-            paddingTop: "8vh",
+            paddingTop: "13vh",
+            paddingBottom: "13vh",
             backgroundColor: theme.palette.primary.main
         }
     },
@@ -38,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
 const Services = () => {
     const classes = useStyles();
     const darkMode = useSelector((state) => state.darkMode);
+    const history = useHistory();
     return (
         <div className={darkMode ? classes.introDarkMode : classes.intro}>
             <Grid container direction="column" spacing={5}>
@@ -64,17 +68,16 @@ const Services = () => {
                         alignItems="flex-end"
                     >
                         <Grid item>
-                            <Typography
-                                color="secondary"
-                                style={{
-                                    textDecoration: "underline",
-                                    fontWeight: "bold"
+                            <Button
+                                onClick={() => {
+                                    history.push("/services");
                                 }}
                             >
-                                <Link
-                                    href="#"
-                                    color="inherit"
+                                <Typography
+                                    color="secondary"
                                     style={{
+                                        textDecoration: "underline",
+                                        fontWeight: "bold",
                                         display: "flex",
                                         alignItems: "center",
                                         flexWrap: "wrap"
@@ -84,8 +87,8 @@ const Services = () => {
                                     <ChevronRight
                                         className={classes.rightIcon}
                                     />
-                                </Link>
-                            </Typography>
+                                </Typography>
+                            </Button>
                         </Grid>
                     </Grid>
                 </Grid>

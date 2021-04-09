@@ -1,8 +1,9 @@
-import { Grid, Link, makeStyles, Typography } from "@material-ui/core";
+import { Button, Grid, makeStyles, Typography } from "@material-ui/core";
 import { ChevronRight } from "@material-ui/icons";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import backgroundImage from "../../assets/bgimage.jpg";
 import ItemPro from "./ItemPro";
 const useStyles = makeStyles((theme) => ({
@@ -70,6 +71,8 @@ const items = [
 const Projects = () => {
     const classes = useStyles();
     const darkMode = useSelector((state) => state.darkMode);
+    const history = useHistory();
+
     return (
         <div className={darkMode ? classes.introDarkMode : classes.intro}>
             <Grid container>
@@ -94,17 +97,16 @@ const Projects = () => {
                         </Typography>
                     </Grid>
                     <Grid item>
-                        <Typography
-                            color="primary"
-                            style={{
-                                textDecoration: "underline",
-                                fontWeight: "bold"
+                        <Button
+                            onClick={() => {
+                                history.push("/projects");
                             }}
                         >
-                            <Link
-                                href="#"
-                                color="inherit"
+                            <Typography
+                                color="primary"
                                 style={{
+                                    textDecoration: "underline",
+                                    fontWeight: "bold",
                                     display: "flex",
                                     alignItems: "center",
                                     flexWrap: "wrap"
@@ -112,8 +114,8 @@ const Projects = () => {
                             >
                                 View All Projects
                                 <ChevronRight className={classes.rightIcon} />
-                            </Link>
-                        </Typography>
+                            </Typography>
+                        </Button>
                     </Grid>
                 </Grid>
                 <Grid item className={classes.carousel}>

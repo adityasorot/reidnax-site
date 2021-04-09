@@ -1,9 +1,16 @@
 import React from "react";
+import DLModels from "./DLModels";
+import ScriptWrite from "./ScriptWrite";
+import ServiceIntro from "./ServiceIntro";
+import SoftwareDesign from "./SoftwareDesign";
 
 const ServicesBody = () => {
     return (
         <div>
-            <h1>Services</h1>
+            <ServiceIntro />
+            <SoftwareDesign />
+            <DLModels />
+            <ScriptWrite />
         </div>
     );
 };

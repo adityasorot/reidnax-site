@@ -1,5 +1,4 @@
 import React from "react";
-import Contact from "./Contact";
 import Introduction from "./Introduction";
 import Projects from "./Projects";
 import Services from "./Services";
@@ -12,7 +11,6 @@ const HomeBody = () => {
             <Social />
             <Projects />
             <Services />
-            <Contact />
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import {
+    Button,
     Grid,
     IconButton,
     Link,
@@ -15,6 +16,7 @@ import {
 } from "@material-ui/icons";
 import React from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 const useStyles = makeStyles((theme) => ({
     intro: {
         padding: "3vh",
@@ -37,11 +39,16 @@ const useStyles = makeStyles((theme) => ({
     rightIcon: {
         color: theme.palette.primary.main
     },
-
     icons: {
-        height: "5vh",
-        width: "3vw",
-        color: theme.palette.primary.main
+        color: theme.palette.primary.main,
+        height: "calc( 1.3vh + 1.3vw )",
+        width: "calc( 1.3vh + 1.3vw )",
+
+        [theme.breakpoints.up("sm")]: {
+            height: "5vh",
+            width: "3vw",
+            color: theme.palette.primary.main
+        }
     },
     boxescontact: {
         width: "40vw",
@@ -69,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
 const Contact = () => {
     const classes = useStyles();
     const darkMode = useSelector((state) => state.darkMode);
+    const history = useHistory();
     return (
         <div className={darkMode ? classes.introDarkMode : classes.intro}>
             <Grid
@@ -97,17 +105,16 @@ const Contact = () => {
                             </Typography>
                         </Grid>
                         <Grid item>
-                            <Typography
-                                color="primary"
-                                style={{
-                                    textDecoration: "underline",
-                                    fontWeight: "bold"
+                            <Button
+                                onClick={() => {
+                                    history.push("/services");
                                 }}
                             >
-                                <Link
-                                    href="#"
-                                    color="inherit"
+                                <Typography
+                                    color="primary"
                                     style={{
+                                        textDecoration: "underline",
+                                        fontWeight: "bold",
                                         display: "flex",
                                         alignItems: "center",
                                         flexWrap: "wrap"
@@ -117,8 +124,8 @@ const Contact = () => {
                                     <ChevronRight
                                         className={classes.rightIcon}
                                     />
-                                </Link>
-                            </Typography>
+                                </Typography>
+                            </Button>
                         </Grid>
                     </Grid>
                     <Grid
@@ -197,27 +204,57 @@ const Contact = () => {
                         </Grid>
                         <Grid item container>
                             <Grid item>
-                                <IconButton>
+                                <IconButton
+                                    onClick={() => {
+                                        const url =
+                                            "http://www.facebook.com/adityasorot";
+                                        window.open(url, "_blank");
+                                    }}
+                                >
                                     <Facebook className={classes.icons} />
                                 </IconButton>
                             </Grid>
                             <Grid item>
-                                <IconButton>
+                                <IconButton
+                                    onClick={() => {
+                                        const url =
+                                            "http://www.github.com/reidnax";
+                                        window.open(url, "_blank");
+                                    }}
+                                >
                                     <GitHub className={classes.icons} />
                                 </IconButton>
                             </Grid>
                             <Grid item>
-                                <IconButton>
+                                <IconButton
+                                    onClick={() => {
+                                        const url =
+                                            "http://www.linkedin.com/in/adityasorot";
+                                        window.open(url, "_blank");
+                                    }}
+                                >
                                     <LinkedIn className={classes.icons} />
                                 </IconButton>
                             </Grid>
                             <Grid item>
-                                <IconButton>
+                                <IconButton
+                                    onClick={() => {
+                                        const url =
+                                            "http://www.twitter.com/theReidnax";
+                                        window.open(url, "_blank");
+                                    }}
+                                >
                                     <Twitter className={classes.icons} />
                                 </IconButton>
                             </Grid>
                             <Grid item>
-                                <IconButton>
+                                <IconButton
+                                    onClick={() => {
+                                        const url =
+                                            "http://www.instagram.com/adityasorot";
+                                        window.open(url, "_blank");
+                                    }}
+                                >
                                     <Instagram className={classes.icons} />
                                 </IconButton>
                             </Grid>

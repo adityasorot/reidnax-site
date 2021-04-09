@@ -12,7 +12,9 @@ import {
 } from "@material-ui/core";
 import { ChevronRight, Menu } from "@material-ui/icons";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+import { toggleScrollF, toggleScrollT } from "../../actions/mainActions";
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1
@@ -97,14 +99,46 @@ const useStyles = makeStyles((theme) => ({
 const FooterBar = () => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
-
+    const dispatch = useDispatch();
     const handleDrawerOpen = () => {
         setOpen(true);
+        dispatch(toggleScrollT());
     };
 
     const handleDrawerClose = () => {
         setOpen(false);
+        dispatch(toggleScrollF());
     };
+    const ButtonList = [
+        {
+            name: "Home",
+            func: () => {
+                history.push("/");
+                handleDrawerClose();
+            }
+        },
+        {
+            name: "About",
+            func: () => {
+                history.push("/about");
+                handleDrawerClose();
+            }
+        },
+        {
+            name: "Services",
+            func: () => {
+                history.push("/services");
+                handleDrawerClose();
+            }
+        },
+        {
+            name: "Projects",
+            func: () => {
+                history.push("/projects");
+                handleDrawerClose();
+            }
+        }
+    ];
     const history = useHistory();
     return (
         <div className={classes.grow}>
@@ -117,35 +151,35 @@ const FooterBar = () => {
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
                         <Button
-                            onClick={() => history.push("/")}
+                            onClick={() => history.push("/#")}
                             style={{ padding: "1vh" }}
                             color="secondary"
                         >
                             Home
                         </Button>
                         <Button
-                            onClick={() => history.push("/about")}
+                            onClick={() => history.push("/about#")}
                             style={{ padding: "1vh" }}
                             color="secondary"
                         >
                             About
                         </Button>
                         <Button
-                            onClick={() => history.push("/services")}
+                            onClick={() => history.push("/services#")}
                             style={{ padding: "1vh" }}
                             color="secondary"
                         >
                             Services
                         </Button>
                         <Button
-                            onClick={() => history.push("/projects")}
+                            onClick={() => history.push("/projects#")}
                             style={{ padding: "1vh" }}
                             color="secondary"
                         >
                             Projects
                         </Button>
                         <Button
-                            onClick={() => history.push("/contact")}
+                            onClick={() => history.push("/contact#")}
                             style={{ padding: "1vh" }}
                             variant="contained"
                             color="secondary"
@@ -186,25 +220,31 @@ const FooterBar = () => {
                     </IconButton>
                 </div>
                 <List>
-                    {["Home", "About", "Services", "Projects"].map(
-                        (text, index) => (
-                            <ListItem button key={text}>
-                                <ListItemText
-                                    primary={
-                                        <Typography color="secondary">
-                                            {text}
-                                        </Typography>
-                                    }
-                                />
-                            </ListItem>
-                        )
-                    )}
+                    {ButtonList.map((itr) => (
+                        <ListItem button key={itr.name}>
+                            <ListItemText
+                                primary={
+                                    <Typography color="secondary">
+                                        {itr.name}
+                                    </Typography>
+                                }
+                                onClick={itr.func}
+                            />
+                        </ListItem>
+                    ))}
                 </List>
                 <div className={classes.grow} />
 
                 <List>
                     <ListItem>
-                        <Button variant="contained" color="secondary">
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            onClick={() => {
+                                history.push("/contact#");
+                                handleDrawerClose();
+                            }}
+                        >
                             <Typography
                                 className={classes.buttonText}
                                 color="primary"
