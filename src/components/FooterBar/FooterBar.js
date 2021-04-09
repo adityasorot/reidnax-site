@@ -140,12 +140,14 @@ const FooterBar = () => {
         }
     ];
     const history = useHistory();
+    const d = new Date();
+    const n = d.getFullYear();
     return (
         <div className={classes.grow}>
             <AppBar position="sticky" classes={{ root: classes.appBar }}>
                 <Toolbar>
-                    <Typography style={{ fontSize: "2rem" }} color="secondary">
-                        Reidnax
+                    <Typography style={{ fontSize: "1rem" }} color="secondary">
+                        Copyright © {n} Reidnax
                     </Typography>
 
                     <div className={classes.grow} />
