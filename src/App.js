@@ -46,11 +46,27 @@ const App = () => {
                     <HeaderBar scroll={endOfScroll} />
                     <ScrollToTop />
                     <Switch>
-                        <Route exact path="/" component={HomeBody} />
-                        <Route path="/services" component={ServicesBody} />
-                        <Route path="/about" component={AboutBody} />
-                        <Route path="/projects" component={ProjectsBody} />
-                        <Route path="/contact" component={ContactBody} />
+                        <Route
+                            exact
+                            path="/reidnax-site/"
+                            component={HomeBody}
+                        />
+                        <Route
+                            path="/reidnax-site/services"
+                            component={ServicesBody}
+                        />
+                        <Route
+                            path="/reidnax-site/about"
+                            component={AboutBody}
+                        />
+                        <Route
+                            path="/reidnax-site/projects"
+                            component={ProjectsBody}
+                        />
+                        <Route
+                            path="/reidnax-site/contact"
+                            component={ContactBody}
+                        />
                     </Switch>
                     <Contact />
                     <FooterBar />

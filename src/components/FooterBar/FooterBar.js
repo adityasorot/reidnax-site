@@ -113,28 +113,28 @@ const FooterBar = () => {
         {
             name: "Home",
             func: () => {
-                history.push("/");
+                history.push("/reidnax-site/");
                 handleDrawerClose();
             }
         },
         {
             name: "About",
             func: () => {
-                history.push("/about");
+                history.push("/reidnax-site/about");
                 handleDrawerClose();
             }
         },
         {
             name: "Services",
             func: () => {
-                history.push("/services");
+                history.push("/reidnax-site/services");
                 handleDrawerClose();
             }
         },
         {
             name: "Projects",
             func: () => {
-                history.push("/projects");
+                history.push("/reidnax-site/projects");
                 handleDrawerClose();
             }
         }
@@ -153,35 +153,41 @@ const FooterBar = () => {
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
                         <Button
-                            onClick={() => history.push("/#")}
+                            onClick={() => history.push("/reidnax-site/")}
                             style={{ padding: "1vh" }}
                             color="secondary"
                         >
                             Home
                         </Button>
                         <Button
-                            onClick={() => history.push("/about#")}
+                            onClick={() => history.push("/reidnax-site/about")}
                             style={{ padding: "1vh" }}
                             color="secondary"
                         >
                             About
                         </Button>
                         <Button
-                            onClick={() => history.push("/services#")}
+                            onClick={() =>
+                                history.push("/reidnax-site/services")
+                            }
                             style={{ padding: "1vh" }}
                             color="secondary"
                         >
                             Services
                         </Button>
                         <Button
-                            onClick={() => history.push("/projects#")}
+                            onClick={() =>
+                                history.push("/reidnax-site/projects")
+                            }
                             style={{ padding: "1vh" }}
                             color="secondary"
                         >
                             Projects
                         </Button>
                         <Button
-                            onClick={() => history.push("/contact#")}
+                            onClick={() =>
+                                history.push("/reidnax-site/contact")
+                            }
                             style={{ padding: "1vh" }}
                             variant="contained"
                             color="secondary"
@@ -243,7 +249,7 @@ const FooterBar = () => {
                             variant="contained"
                             color="secondary"
                             onClick={() => {
-                                history.push("/contact#");
+                                history.push("/reidnax-site/contact");
                                 handleDrawerClose();
                             }}
                         >
