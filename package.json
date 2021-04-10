@@ -1,7 +1,7 @@
 {
     "name": "reidnax-site",
     "version": "0.1.0",
-    "homepage": "http://gitname.github.io/reidnax-site",
+    "homepage": "http://gitname.github.io/reidnax-site/",
     "private": true,
     "dependencies": {
         "@material-ui/core": "^4.11.3",
