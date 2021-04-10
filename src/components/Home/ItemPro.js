@@ -4,11 +4,11 @@ import React from "react";
 const useStyles = makeStyles((theme) => ({
     paper: {
         backgroundImage: (props) => props.item.backgroundImage,
-        backgroundSize: "40vh",
+        backgroundSize: "cover",
         height: "25vh",
         [theme.breakpoints.up("sm")]: {
             backgroundImage: (props) => props.item.backgroundImage,
-            backgroundSize: "140vh",
+            backgroundSize: "cover",
             height: "70vh"
         }
     },
