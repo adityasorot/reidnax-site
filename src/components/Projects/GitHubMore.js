@@ -70,7 +70,7 @@ const GitHubMore = () => {
                         variant="h3"
                         style={{ paddingLeft: "2vh" }}
                     >
-                        You can explore more of my projects on my GitHub Repo
+                        You can explore more of my projects on my GitHub Profile
                     </Typography>
                     <Button
                         variant="contained"

@@ -4,7 +4,7 @@ import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { useSelector } from "react-redux";
 import ItemPro from "../Home/ItemPro";
-import backgroundImage from "../../assets/bgimage.jpg";
+import webapp from "../../assets/webapp.jpeg";
 const useStyles = makeStyles((theme) => ({
     intro: {
         padding: "3vh",
@@ -65,9 +65,9 @@ const useStyles = makeStyles((theme) => ({
 
 const items = [
     {
-        name: "itemName",
-        backgroundImage: `url(${backgroundImage})`,
-        description: "itemDescription"
+        name: "InvoMag",
+        backgroundImage: `url(${webapp})`,
+        description: "Invoice Management"
     }
 ];
 

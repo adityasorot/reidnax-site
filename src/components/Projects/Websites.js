@@ -3,7 +3,7 @@ import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { useSelector } from "react-redux";
 import ItemPro from "../Home/ItemPro";
-import backgroundImage from "../../assets/bgimage.jpg";
+import site from "../../assets/site.png";
 const useStyles = makeStyles((theme) => ({
     intro: {
         padding: "3vh",
@@ -57,9 +57,9 @@ const useStyles = makeStyles((theme) => ({
 
 const items = [
     {
-        name: "itemName",
-        backgroundImage: `url(${backgroundImage})`,
-        description: "itemDescription"
+        name: "This Site",
+        backgroundImage: `url(${site})`,
+        description: "Created My PortFolio"
     }
 ];
 

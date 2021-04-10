@@ -4,7 +4,10 @@ import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import backgroundImage from "../../assets/bgimage.jpg";
+import fb from "../../assets/fb.png";
+import site from "../../assets/site.png";
+import ml from "../../assets/ml.png";
+import webapp from "../../assets/webapp.jpeg";
 import ItemPro from "./ItemPro";
 const useStyles = makeStyles((theme) => ({
     intro: {
@@ -62,9 +65,24 @@ const useStyles = makeStyles((theme) => ({
 
 const items = [
     {
-        name: "itemName",
-        backgroundImage: `url(${backgroundImage})`,
-        description: "itemDescription"
+        name: "InvoMag",
+        backgroundImage: `url(${webapp})`,
+        description: "Invoice Management"
+    },
+    {
+        name: "Facebook Bot",
+        backgroundImage: `url(${fb})`,
+        description: "Automation of facebook"
+    },
+    {
+        name: "Payment Prediction",
+        backgroundImage: `url(${ml})`,
+        description: "Predict next payment date"
+    },
+    {
+        name: "This Site",
+        backgroundImage: `url(${site})`,
+        description: "Created My PortFolio"
     }
 ];
 
@@ -119,7 +137,7 @@ const Projects = () => {
                     </Grid>
                 </Grid>
                 <Grid item className={classes.carousel}>
-                    <Carousel indicators={false}>
+                    <Carousel indicators={false} animation="slide">
                         {items.map((item) => (
                             <ItemPro key={item} item={item} />
                         ))}
